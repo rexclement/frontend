@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const ProtectedRoute = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/check-auth', { withCredentials: true })
+      .get(`${BASE_URL}/check-auth`, { withCredentials: true })
       .then((res) => setAuthenticated(res.data.loggedIn)) // ✅ FIXED
       .catch(() => setAuthenticated(false));
   }, [location.pathname]);

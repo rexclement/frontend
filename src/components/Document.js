@@ -3,7 +3,7 @@ import axios from "axios";
 import "remixicon/fonts/remixicon.css";
 import "./document.css";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const Document = () => {
     const [documents, setDocuments] = useState({

@@ -6,7 +6,7 @@ import "./Event.css";
 import { Document, Packer, Paragraph, Table, TableRow, TableCell, TextRun } from "docx";
 import { saveAs } from "file-saver";
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const Event = () => {
   const [events, setEvents] = useState([]);
